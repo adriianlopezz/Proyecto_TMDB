@@ -9,7 +9,7 @@ const navbar = () => {
             <nav className="navbar navbar-expand-lg navbar-light text-white bg-dark">
                 <div className="container-fluid">
                     <Link to='/'>
-                        <img src="img/logo.png" alt="" />
+                        <img src="img/logo.jpg" alt="" width='90' height='50'/>
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -17,10 +17,10 @@ const navbar = () => {
                     <div className="collapse navbar-collapse text-white" id="navbarNav">
                         <ul className="navbar-nav mx-auto">
                             <li className="nav-item active">
-                                <Link className="nav-link" to='/' >Inicio</Link>
+                                <Link className="nav-link font-weight-bold text-white" to='/' >Inicio</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to='/peliculas' >Peliculas</Link>
+                                <Link className="nav-link font-weight-bold text-white" to='/peliculas' >Peliculas</Link>
                             </li>
                         </ul>
                     </div>

@@ -11,7 +11,7 @@ const footer = () => {
                 <div className="container">
                     <nav className="row">
                         <Link to='/' className="col-12 col-md-3 d-flex aling-items-center justify-content-center">
-                            <img src="img/logo.png" className="mx-2" width='90' />
+                            <img src="img/logo.jpg" className="mx-2" width='90' height='50'/>
                         </Link>
                         <ul className="col-12 col-md-3 list-unstyled text-center">
                             <li className="font-weight-bold mb-2">THE MOVIE DATABASE</li>
