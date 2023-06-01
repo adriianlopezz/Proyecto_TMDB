@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react"
 import { Outlet, Link } from "react-router-dom"
+import "../partes/navbar.css"
 
 const navbar = () => {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+        <div className="text-white header header">
+            <nav className="navbar navbar-expand-lg navbar-light text-white bg-dark">
                 <div className="container-fluid">
                     <Link to='/'>
                         <img src="img/logo.png" alt="" />
@@ -13,7 +14,7 @@ const navbar = () => {
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className="collapse navbar-collapse text-white" id="navbarNav">
                         <ul className="navbar-nav mx-auto">
                             <li className="nav-item active">
                                 <Link className="nav-link" to='/' >Inicio</Link>

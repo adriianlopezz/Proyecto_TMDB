@@ -1,23 +1,25 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Youtube from 'react-youtube'
+//import Youtube from 'react-youtube'
+import { Link } from 'react-router-dom';
 import './peliculas.css'
 import Footer from "../partes/footer"
+
 
 function App() {
   const API_URL = 'https://api.themoviedb.org/3' //URL base de la API de TMDB
   const API_KEY = '2cfc80a5b2ac65781ad0833ad2be99cd' //clave de autenticación utilizada para acceder a la API de TMDB.
   //URLs base para acceder a las imágenes de las películas en TMDB.
-  const IMAGE_PATH = 'https://image.tmdb.org/t/p/original'
+  // const IMAGE_PATH = 'https://image.tmdb.org/t/p/original'
   const URL_IMAGE = 'https://image.tmdb.org/t/p/original'
 
   //variables de estado
   const [movies, setMovies] = useState([])
   const [searchKey, setSearchKey] = useState("")
-  const [trailer, setTrailer] = useState(null);
-  const [movie, setMovie] = useState({ title: "Cargando peliculas" });
-  const [playing, setPlaying] = useState(false);
+  // const [trailer, setTrailer] = useState(null);
+  //const [movie, setMovie] = useState({ title: "Cargando peliculas" });
+  // const [playing, setPlaying] = useState(false);
 
   //funcion para realizar la peticion por get a la api
   const fetchMovies = async (searchKey) => { //realiza una solicitud HTTP para obtener datos de la API
@@ -33,37 +35,37 @@ function App() {
     });
 
     setMovies(results)
-    setMovie(results[0])
+    //setMovie(results[0])
     //Si results tiene una longitud mayor a cero, se llama a la función fetchMovie pasando el id de la primera película en results
-    if (results.length) {
-      await fetchMovie(results[0].id)
-    }
+    // if (results.length) {
+    //   await fetchMovie(results[0].id)
+    // }
 
   }
 
   //funcion para pedir una peli/objeto y mostrarlo en video
-  const fetchMovie = async (id) => { //realiza una solicitud HTTP para obtener datos de la API
-    const { data } = await axios.get(`${API_URL}/movie/${id}`, { //realiza una solicitud GET a la API.Se pasa la clave de API y se solicita que se incluyan los videos relacionados a la película en la respuesta.
-      params: {
-        api_key: API_KEY,
-        append_to_response: "videos"
-      }
-    })
-    //se verifica si data contiene la propiedad videos y si data.videos.results existe. Si es así, se busca el primer video cuyo nombre es "Trailer Oficial" utilizando el método find
-    if (data.videos && data.videos.results) {
-      const trailer = data.videos.results.find(
-        (vid) => vid.name === "Trailer Oficial"
-      );
-      setTrailer(trailer ? trailer : data.videos.results[0])
-    }
-    setMovie(data)
-  }
+  // const fetchMovie = async (id) => { //realiza una solicitud HTTP para obtener datos de la API
+  //   const { data } = await axios.get(`${API_URL}/movie/${id}`, { //realiza una solicitud GET a la API.Se pasa la clave de API y se solicita que se incluyan los videos relacionados a la película en la respuesta.
+  //     params: {
+  //       api_key: API_KEY,
+  //       append_to_response: "videos"
+  //     }
+  //   })
+  //   //se verifica si data contiene la propiedad videos y si data.videos.results existe. Si es así, se busca el primer video cuyo nombre es "Trailer Oficial" utilizando el método find
+  //   if (data.videos && data.videos.results) {
+  //     const trailer = data.videos.results.find(
+  //       (vid) => vid.name === "Trailer Oficial"
+  //     );
+  //     setTrailer(trailer ? trailer : data.videos.results[0])
+  //   }
+  //   setMovie(data)
+  // }
 
-  const selectMovie = async (movie) => {
-    fetchMovie(movie.id) //se realizará una solicitud para obtener información detallada de la película seleccionada.
-    setMovie(movie) //actualiza la interfaz de usuario y mostrar detalles de la película seleccionada.
-    window.scrollTo(0, 0) //se realiza un desplazamiento de la ventana hacia la parte superior.
-  }
+  // const selectMovie = async (movie) => {
+  //   fetchMovie(movie.id) //se realizará una solicitud para obtener información detallada de la película seleccionada.
+  //   setMovie(movie) //actualiza la interfaz de usuario y mostrar detalles de la película seleccionada.
+  //   window.scrollTo(0, 0) //se realiza un desplazamiento de la ventana hacia la parte superior.
+  // }
 
   //funcion para buscar peliculas
   const searchMovies = (e) => {
@@ -80,14 +82,14 @@ function App() {
       <h2 className='text-center mt-5 mb-5'>Novedades de Peliculas</h2>
 
       {/* Buscador */}
-      <form className='container mb-4' onSubmit={searchMovies}>
+      <form className='container mb-4 search-form search-form input search-form button' onSubmit={searchMovies}>
         <input type="text" placeholder='search' onChange={(e) => setSearchKey(e.target.value)} />
         <button className='btn btn-primary'>Buscar</button>
       </form>
 
 
       {/* aqui va el contenedor del banner y el reproductor del trailer */}
-      <div>
+      {/* <div>
         <main>
           {movie ? (
             <div
@@ -143,15 +145,18 @@ function App() {
             </div>
           ) : null}
         </main>
-      </div>
+      </div> */}
 
       {/* contenedor que muestra los poster de las peliculas actuales */}
       <div className='container mt-3'>
         <div className="row">
           {movies.map((movie) => (
-            <div key={movie.id} className='col-md-4 mb-3' onClick={() => selectMovie(movie)}>
-              <img src={`${URL_IMAGE + movie.poster_path}`} alt="" height={600} width="100%" />
-              <h4 className='text-center'>{movie.title}</h4>
+            <div key={movie.id}>
+              <img className='col-md-12 mr-3 mb-3' src={`${URL_IMAGE + movie.poster_path}`} alt="" height={500} width="100%" />
+              <h3 className='text-center text-danger'>{movie.title}</h3>
+              <div className='text-center mb-2'>
+                <Link to={`/peliculas/${movie.id}`}>Ver detalles</Link>
+              </div>
             </div>
           ))}
         </div>

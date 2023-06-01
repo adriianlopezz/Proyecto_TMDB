@@ -1,12 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from 'react-router-dom'
+import "../partes/footer.css"
 
 const footer = () => {
 
     return (
         <div>
-            <footer className="text-white py-4 bg-primary">
+            <footer className="text-white py-4 bg-dark footer">
                 <div className="container">
                     <nav className="row">
                         <Link to='/' className="col-12 col-md-3 d-flex aling-items-center justify-content-center">

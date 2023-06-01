@@ -6,16 +6,15 @@ const inicio = () => {
     return (
         <div>
             <div className="container mx-auto text-center">
-                <h1 className="text-white p-2 bg-dark text-center">Pokemon</h1>
+                <h1 className="text-white p-2 bg-dark text-center mt-3">Base de datos de peliculas TMDB</h1>
                 <figure>
                     <blockquote className="blockquote">
-                        <p className="mt-3 mx-auto text-danger">
-                            Pokémon (ポケモン Pokemon) es una franquicia de medios que originalmente comenzó como un videojuego RPG, pero debido a su popularidad ha logrado expandirse a otros medios de entretenimiento como series de televisión, películas, juegos de cartas, ropa, entre otros, convirtiéndose en una marca que es reconocida en el mercado mundial. Las ventas de videojuegos hasta el 1 de diciembre de 2006 habían alcanzado una cantidad de 340 millones de ejemplares (incluyendo la venta de la versión Pikachu de la consola Nintendo 64),​ logrando ocupar el segundo lugar de las sagas de videojuegos más vendidos de Nintendo.​ La franquicia celebró su décimo aniversario el 27 de febrero de 2006.
-                        </p>
+                        <p className="mt-3 mx-auto text-white bg-dark">
+                            Themoviedb.org es una base de datos gratuita y abierta con millones de datos relacionados con el mundo del cine.
+                            Es usada cada mes por miles de aplicaciones que aprovechan su API para mostrar informaciones de todo tipo sobre las más variadas pelí­culas, siendo la fuente de datos de centros tan conocidos como Moovida, XBMC, Plex, MythTV o MediaPortal.
+                            Sin duda una aplicación interesante para los que están pensando en crear un videoclub online, un sitio de crí­ticas o una videoteca y no pueden incluir datos de todas las pelí­culas dentro de su propio sistema.                        </p>
                     </blockquote>
                 </figure>
-                <h2 className="bg-dark text-white mx-auto text-center">Opening</h2>
-                <iframe className="justify-content-center" width="560" height="315" src="https://www.youtube.com/embed/wvy-pO65GhQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <Footer />
         </div>

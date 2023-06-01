@@ -4,7 +4,8 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './partes/navbar';
 import Inicio from './paginas/inicio'
-import Peliculas from './paginas/peliculas'
+import Pelicula from './paginas/peliculas'
+import MovieDetails from './paginas/MovieDetails'
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Navbar />}>
           <Route path='/' element={<Inicio />} />
-          <Route path='/Peliculas' element={<Peliculas />} />
+          <Route path='/peliculas' element={<Pelicula />} />
+          <Route path="/peliculas/:id" element={<MovieDetails />}/>
         </Route>
       </Routes>
     </div >
