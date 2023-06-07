@@ -39,8 +39,9 @@ function App() {
     fetchMovies(searchKey) //se realizará una solicitud para obtener películas relacionadas con el término de búsqueda especificado en searchKey.
   }
 
+  //useEffect llama a la función fetchMovies cuando el componente se monta por primera vez
   useEffect(() => {
-    fetchMovies();
+    fetchMovies(); //función que realiza una solicitud HTTP para obtener películas
   }, [])
 
   return (

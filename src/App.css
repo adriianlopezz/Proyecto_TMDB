@@ -4,7 +4,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    background-image: url('../src/img/fondo_cine.jpg');
+    background-image: url('../img/fondo_cine.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
