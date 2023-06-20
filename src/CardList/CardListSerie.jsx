@@ -6,7 +6,7 @@ import '../CardList/CardList.css';
 
 const CardList = ({ series }) => {
   return (
-    <div className='card-list'>
+    <div className='card-list text-center mt-3'>
       {series && series.map(serie =>
         <CardSerie serie={serie} key={serie.id} />
       )}

@@ -25,6 +25,9 @@ const footer = () => {
                             <li>
                                 <Link to='/peliculas'>Peliculas</Link>
                             </li>
+                            <li>
+                                <Link to='/series'>Series de televisión</Link>
+                            </li>
                         </ul>
                         <ul className="col-12 col-md-3 list-unstyled text-center">
                             <li className="font-weight-bold mb-2">Enlaces externos</li>

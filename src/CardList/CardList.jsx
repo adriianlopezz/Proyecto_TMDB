@@ -6,7 +6,7 @@ import '../CardList/CardList.css';
 
 const CardList = ({ movies }) => {
   return (
-    <div className='card-list'>
+    <div className='card-list text-center mt-3'>
       {movies && movies.map(movie =>
         <Card movie={movie} key={movie.url} />
       )}

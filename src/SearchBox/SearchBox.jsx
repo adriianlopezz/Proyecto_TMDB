@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import '../SearchBox/SearchBox.css'
+import '../SearchBox/SearchBox.css';
 
 const SearchBox = ({ placeholder, onSearchChange }) => (
-  <div className="search-bar">
+  <div className="search-box-container">
     <i className="fas fa-search search-icon"></i>
     <input
       className='search-bar'

@@ -10,13 +10,13 @@ const Card = ({ serie }) => {
     <div>
       <div>
         <img
-          className='col-md-6 mr-3 mb-3'
+          className='col-md-6 mr-3 mb-3 text-center'
           src={`${URL_IMAGE + serie.poster_path}`}
           alt=''
           height={400}
           width='50%'
         />
-        <h3 className='text-center text-danger'>{serie.name}</h3>
+        <h3 className='text-center text-danger mb-3'>{serie.name}</h3>
       </div>
     </div>
   );

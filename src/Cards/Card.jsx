@@ -18,7 +18,7 @@ const Card = ({ movie }) => {
           width='50%'
         />
         <h3 className='text-center text-danger'>{movie.title}</h3>
-        <div className='text-center mb-2'>
+        <div className='text-center mb-3'>
           <Link to={`/peliculas/${movie.id}`}>Ver detalles</Link>
         </div>
       </div>
