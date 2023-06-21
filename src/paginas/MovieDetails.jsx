@@ -8,10 +8,16 @@ import '../paginas/MovieDetails.css';
 function MovieDetails() {
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
 
+  //Se utiliza el hook useParams() de React Router para obtener el valor del parámetro de ruta llamado id.
+  // useState te permite agregar y administrar el estado en tus componentes funcionales de React, lo que te permite crear componentes dinámicos y reactivos que responden a los cambios en el estado.
   const { id } = useParams();
   const [movie, setMovie] = useState({ title: 'Cargando película...' });
 
+  //Se utiliza el hook useEffect para ejecutar una función asíncrona, en este caso fetchSeries
   useEffect(() => {
+    //Se define la función fetchMovie() como una función asincrónica
+    //Se obtienen los detalles de una película utilizando la función getPeliculaDetails()
+    //Se actualiza el estado de la película usando setMovie(data).
     const fetchMovie = async () => {
       try {
         const data = await getPeliculaDetails(id);

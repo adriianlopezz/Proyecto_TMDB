@@ -9,11 +9,15 @@ import Footer from "../partes/footer"
 
 function App() {
   //const URL_IMAGE = 'https://image.tmdb.org/t/p/original'
+  // useState te permite agregar y administrar el estado en tus componentes funcionales de React, lo que te permite crear componentes dinámicos y reactivos que responden a los cambios en el estado.
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState('');
 
+  //Se utiliza el hook useEffect para ejecutar una función asíncrona, en este caso fetchMovies
   useEffect(() => {
-
+    //La función fetchMovies llama a la función getPeliculas para obtener la lista de películas y actualiza el estado movies con los datos obtenidos.
+    //se utiliza getPeliculas() para obtener las películas y se almacenan en la variable m
+    // Finalmente, se actualiza el estado de movies utilizando setMovies(m).
     async function fetchMovies() {
       let m = await getPeliculas();
       console.log(m);
@@ -21,10 +25,11 @@ function App() {
     }
 
     fetchMovies();
-
+    //El arreglo vacío [], indica que la función de efecto se ejecutará solo una vez
   }, []);
 
   const filteredMovies = movies.filter(movie => {
+    //El método toLowerCase() se hace para realizar una comparación de búsqueda que no distinga entre mayúsculas y minúsculas.
     return movie.title.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -35,8 +40,6 @@ function App() {
         placeholder="Búsqueda Peliculas"
         onSearchChange={(e) => setSearch(e.target.value)}
       />
-
-      {/* contenedor que muestra los poster de las peliculas actuales */}
       <CardList movies={filteredMovies} />
       <Footer />
     </div>

@@ -7,7 +7,8 @@ import '../CardList/CardList.css';
 const CardList = ({ movies }) => {
   return (
     <div className='card-list text-center mt-3'>
-      {movies && movies.map(movie =>
+      {/* se utiliza el método map() para iterar sobre cada elemento del array de películas */}
+      {movies.map(movie =>
         <Card movie={movie} key={movie.url} />
       )}
     </div>
